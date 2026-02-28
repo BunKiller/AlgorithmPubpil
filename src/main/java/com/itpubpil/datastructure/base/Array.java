@@ -94,7 +94,7 @@ public class Array<E> {
         }
         // 如果添加元素时检测到满了，则动态扩展为原来长度的两倍
         if (size == data.length) {
-            reSize(2 * data.length);
+            resize(2 * data.length);
         }
 
         for (int i = size - 1; i >= index; i--) {
@@ -188,7 +188,7 @@ public class Array<E> {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Remove Failed,Required index >= 0 and index <= currentSize");
         }
-        E ret = data[index];
+        E removedElement = data[index];
         for (int i = index + 1; i < size; i++) {
             data[i - 1] = data[i];
         }
@@ -196,9 +196,9 @@ public class Array<E> {
         data[size] = null;
         // 移除元素时，如果数组中元素数量减少到一定程度，则缩小数组长度为原来的1/2,避免复杂度震荡
         if (size == data.length / 4 && data.length / 2 != 0) {
-            reSize(data.length / 2);
+            resize(data.length / 2);
         }
-        return ret;
+        return removedElement;
     }
 
     /**
@@ -234,7 +234,7 @@ public class Array<E> {
     /**
      * 动态扩展容量
      */
-    private void reSize(int newCapacity) {
+    private void resize(int newCapacity) {
         E[] newData = (E[]) new Object[newCapacity];
         for (int i = 0; i < size; i++) {
             newData[i] = data[i];

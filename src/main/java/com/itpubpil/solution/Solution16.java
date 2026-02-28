@@ -18,11 +18,11 @@ public class Solution16 {
             if (nums.length < 3) {
                 throw new RuntimeException("input error");
             }
-            int n = nums.length;
+            int length = nums.length;
             Arrays.sort(nums);
-            int minSum = nums[0] + nums[1] + nums[2];
-            for (int i = 0; i < n; i++) {
-                int left = i + 1, right = n - 1;
+            int closestSum = nums[0] + nums[1] + nums[2];
+            for (int i = 0; i < length; i++) {
+                int left = i + 1, right = length - 1;
                 while (left < right) {
                     int sum = nums[i] + nums[left] + nums[right];
                     if (sum < target) {
@@ -32,12 +32,12 @@ public class Solution16 {
                     } else {
                         return sum;
                     }
-                    if (Math.abs(sum - target) < Math.abs(minSum - target)) {
-                        minSum = sum;
+                    if (Math.abs(sum - target) < Math.abs(closestSum - target)) {
+                        closestSum = sum;
                     }
                 }
             }
-            return minSum;
+            return closestSum;
         }
     }
 }
