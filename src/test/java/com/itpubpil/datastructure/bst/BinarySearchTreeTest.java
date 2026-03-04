@@ -44,10 +44,10 @@ public class BinarySearchTreeTest {
         bst.noRecursionPreOrder();
         System.out.println("midOrder:");
         bst.midOrder();
-        System.out.println("tailOrder:");
-        bst.tailOrder();
-        System.out.println("floorOrder:");
-        bst.floorOrder();
+        System.out.println("postOrder:");
+        bst.postOrder();
+        System.out.println("levelOrder:");
+        bst.levelOrder();
     }
 
     @Test

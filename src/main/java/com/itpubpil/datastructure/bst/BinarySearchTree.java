@@ -146,7 +146,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
     /**
      * 层序遍历（广度优先遍历），常用于搜索
      */
-    public void floorOrder() {
+    public void levelOrder() {
         if (root == null) {
             return;
         }
@@ -165,16 +165,16 @@ public class BinarySearchTree<E extends Comparable<E>> {
         }
     }
 
-    public void tailOrder() {
-        tailOrder(root);
+    public void postOrder() {
+        postOrder(root);
     }
 
-    public void tailOrder(Node node) {
+    public void postOrder(Node node) {
         if (node == null) {
             return;
         }
-        tailOrder(node.left);
-        tailOrder(node.right);
+        postOrder(node.left);
+        postOrder(node.right);
         System.out.println(node.e);
     }
 
@@ -199,12 +199,12 @@ public class BinarySearchTree<E extends Comparable<E>> {
      * 删除树最小值
      */
     public E removeMin() {
-        E ret = minimum();
+        E minimumValue = minimum();
         Node min = removeMin(root);
-        if(ret.compareTo(root.e) == 0){
+        if(minimumValue.compareTo(root.e) == 0){
             root = min;
         }
-        return ret;
+        return minimumValue;
     }
 
     private Node removeMin(Node node) {
@@ -222,12 +222,12 @@ public class BinarySearchTree<E extends Comparable<E>> {
      * 删除树最大值
      */
     public E removeMax() {
-        E ret = maximum();
+        E maximumValue = maximum();
         Node max = removeMax(root);
-        if(ret.compareTo(root.e) == 0){
+        if(maximumValue.compareTo(root.e) == 0){
             root = max;
         }
-        return ret;
+        return maximumValue;
     }
 
     private Node removeMax(Node node) {

@@ -30,13 +30,13 @@ public class Solution9 {
         // 第二种解法，计算数值
         public boolean isPalindrome2(int x) {
             if (x < 0) return false;
-            int cur = 0;
-            int num = x;
-            while (num != 0) {
-                cur = cur * 10 + num % 10;
-                num /= 10;
+            int reversedNumber = 0;
+            int remaining = x;
+            while (remaining != 0) {
+                reversedNumber = reversedNumber * 10 + remaining % 10;
+                remaining /= 10;
             }
-            return cur == x;
+            return reversedNumber == x;
         }
     }
 }

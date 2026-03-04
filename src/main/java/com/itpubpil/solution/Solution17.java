@@ -70,15 +70,15 @@ public class Solution17 {
             return res;
         }
 
-        private void findCombination(String digits, int index, String s) {
+        private void findCombination(String digits, int index, String currentCombination) {
             if (index == digits.length()) {
-                res.add(s);
+                res.add(currentCombination);
                 return;
             }
-            char c = digits.charAt(index);
-            String letters = letterMap[c - '0'];
-            for (int i = 0; i < letters.length(); i++) {
-                findCombination(digits, index + 1, s + letters.charAt(i));
+            char digit = digits.charAt(index);
+            String mappedLetters = letterMap[digit - '0'];
+            for (int i = 0; i < mappedLetters.length(); i++) {
+                findCombination(digits, index + 1, currentCombination + mappedLetters.charAt(i));
             }
         }
     }
